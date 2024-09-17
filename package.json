@@ -13,5 +13,8 @@
     "@playwright/test": "^1.47.1",
     "@types/mocha": "^10.0.8",
     "@types/node": "^22.5.5"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
   }
 }

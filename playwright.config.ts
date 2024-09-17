@@ -2,6 +2,7 @@ import { defineConfig, devices } from '@playwright/test';
 
 
 export default defineConfig({
+  globalSetup:'./src/fixtures/env-config.ts',
   testDir: './src/tests',
   /* Run tests in files in parallel */
   fullyParallel: true,

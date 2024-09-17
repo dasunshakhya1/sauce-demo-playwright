@@ -7,6 +7,10 @@ export class LoginPage {
   }
 
   async loadApplication() {
-    await this.page.goto("https://www.saucedemo.com/v1/");
+    if (process.env.BASE_URL) {
+      await this.page.goto(process.env.BASE_URL);
+    } else {
+      console.error("BASE_URL is not found");
+    }
   }
 }
