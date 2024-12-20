@@ -1,17 +1,15 @@
-import { Page } from "@playwright/test";
-import { ProductHelper } from "./product-helper";
+import { Locator, Page } from "@playwright/test";
 
-export class ProductPage {
-  readonly page: Page;
-  private readonly ph: ProductHelper;
+export class ProductPage{
+    readonly page: Page
+    readonly items:Locator
+    readonly itemName:Locator
 
-  constructor(page: Page) {
-    this.page = page;
-    this.ph = new ProductHelper(page);
-  }
-    
-    async getProductCount() {
-        const items = await this.ph.items.all()
-        console.log(items.length)
+
+    constructor(page: Page) {
+        this.page = page
+        this.items = page.locator(".inventory_item");
+        this.itemName = this.items.locator(".inventory_item_name")
+        
     }
 }

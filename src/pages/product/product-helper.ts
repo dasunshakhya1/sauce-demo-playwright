@@ -1,12 +1,17 @@
-import { Locator, Page } from "@playwright/test";
+import { expect, Page } from "@playwright/test";
+import { ProductPage } from "./product-page";
 
-export class ProductHelper{
-    readonly page: Page
-    readonly items:Locator
+export class ProductHelper {
+  readonly page: Page;
+  private readonly ph: ProductPage;
 
+  constructor(page: Page) {
+    this.page = page;
+    this.ph = new ProductPage(page);
+  }
 
-    constructor(page: Page) {
-        this.page = page
-        this.items = page.locator(".inventory_item");
-    }
+  async getProductCount() {
+
+    return await this.ph.items.all()
+  }
 }

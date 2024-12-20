@@ -1,12 +1,14 @@
+import { expect } from "@playwright/test";
 import { test } from "../../fixtures/test-config";
 
 
 
-test.beforeEach(async ({ loginPage }) => {
-  await loginPage.loadApplication();
+test.beforeEach(async ({ loginHelper }) => {
+  await loginHelper.loadApplication();
+  await loginHelper.login("standard_user", "secret_sauce");
 });
 
-test('Get product count', async ({productPage}) => {
-    const l = await productPage.getProductCount()
-    
+test('Get product count', async ({ productHelper }) => {
+  const inventoryItems = await productHelper.getProductCount()
+  expect(inventoryItems.length).toBeGreaterThan(1)
 })
