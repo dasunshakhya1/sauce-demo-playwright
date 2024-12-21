@@ -12,7 +12,6 @@ export class ProductHelper {
     }
 
     async getProductCount() {
-        await this.page.waitForLoadState('domcontentloaded')
         return await this.ph.items.all()
     }
 

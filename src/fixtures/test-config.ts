@@ -1,6 +1,4 @@
 import { test as base } from "@playwright/test";
-import { LoginPage } from "../pages/login/login-page";
-import { ProductPage } from "../pages/product/product-page";
 import { LoginHelper } from "../pages/login/login-helper";
 import { ProductHelper } from "../pages/product/product-helper";
 import { HeaderHelper } from "../pages/header/header-helper";
