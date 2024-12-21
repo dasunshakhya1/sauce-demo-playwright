@@ -1,4 +1,4 @@
-interface InventoryItem {
+export  interface InventoryItem {
     name: string,
     price: string
 }

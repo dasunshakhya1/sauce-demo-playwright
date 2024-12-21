@@ -10,5 +10,6 @@ test.beforeEach(async ({ loginHelper }) => {
 
 test('Get product count', async ({ productHelper }) => {
   const inventoryItems = await productHelper.getProductCount()
+ await productHelper.getProducts()
   expect(inventoryItems.length).toBeGreaterThan(1)
 })
