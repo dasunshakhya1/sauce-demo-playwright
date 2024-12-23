@@ -1,0 +1,27 @@
+name: execute UI tests
+on:
+    - push
+jobs:
+    configure_node_js:
+        runs-on: ubuntu:latest
+        steps:
+            - name: checkout
+              uses: actions/checkout@v4.2.2
+
+            - name: Setup Node.js environment
+              uses: actions/setup-node@v4.1.0
+
+            - name: install nodejs
+              uses: actions/cache@v4
+              id: npm-cache 
+              with:
+                  path: ${{ steps.npm-cache-dir.outputs.dir }}
+                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-node-
+
+            - name: install dependencies
+              run: npm install
+
+            - name: execute tests
+              run: npm test
